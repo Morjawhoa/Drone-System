@@ -63,4 +63,33 @@ Then compile and install OpenCV using:
 make -j4
 sudo make install
 ```
+## ROS Package Implementation Instructions
+Follow these steps to implement the ROS package `tag_detector`:
+
+1. Use the provided ROS package `tag_detector`.
+2. Implement the project based on the point and position arrays calculated within images.
+3. Compile the `tag_detector` ROS package after placing it appropriately within your ROS workspace (`catkin_ws/src/`).
+
+```bash
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+```
+
+4. Locate `bag_tag.launch` in `tag_detector/launch` and `images.bag` in `tag_detector/bag`.
+5. Execute the package using:
+
+```bash
+roslaunch tag_detector bag_tag.launch
+```
+
+6. Review and understand all comments carefully in the source file located at:
+
+```
+tag_detector/src/tag_detector_node.cpp
+```
+
+Implement your project based on these instructions and the provided comments.
+
+**Note:** The pose array and positions calculated within the provided image streams should be represented as `(t, x, y, z, qx, qy, qz, qw)`.
 
