@@ -64,12 +64,3 @@ make -j4
 sudo make install
 ```
 
-## Troubleshooting
-### Error
-```
-error while loading shared libraries: libopencv_img*.so.3.4: cannot open shared object file
-```
-
-Refer to the following solution:
-- [Debugging Shared Libraries Error (CSDN)](https://blog.csdn.net/qq_35759574/article/details/90205184)
-
