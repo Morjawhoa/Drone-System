@@ -1,34 +1,28 @@
 # Design and Implementation of an Autonomous Drone System
 
-## 环境配置与安装指南
+## Installation Requirements
 
-### 一、依赖安装
-
-#### 1. 安装 CMake
+### 1. Install Eigen3
+Execute the following commands to install required dependencies:
 
 ```bash
+# Install CMake
 sudo apt-get install cmake
-```
 
-#### 2. 安装 google-glog 和 gflags
-
-```bash
+# Install google-glog and gflags
 sudo apt-get install libgoogle-glog-dev libgflags-dev
-```
 
-#### 3. 安装 Eigen3
-
-```bash
+# Install Eigen3
 sudo apt-get install libeigen3-dev
 ```
 
-### 二、OpenCV 安装（版本：3.4.16）
+### 2. Install OpenCV 3.4.16
 
-#### 1. 下载 OpenCV 源码
+#### Step a: Download OpenCV
+Download OpenCV version 3.4.16 from the official release page: [OpenCV Releases](https://opencv.org/releases/)
 
-从 [OpenCV 官网](https://opencv.org/releases/) 下载 OpenCV 3.4.16 的源码压缩包。
-
-#### 2. 安装编译工具与依赖
+#### Step b: Install Dependencies
+Execute the following command to install all necessary dependencies and build tools:
 
 ```bash
 sudo apt install build-essential cmake git pkg-config libgtk-3-dev \
@@ -39,7 +33,8 @@ libtbb2 libtbb-dev libdc1394-22-dev libopenexr-dev \
 libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev
 ```
 
-#### 3. 编译与安装 OpenCV
+#### Step c: Compile OpenCV
+Run the following commands to compile the OpenCV source code:
 
 ```bash
 mkdir ~/opencv_build && cd ~/opencv_build
@@ -54,29 +49,27 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
       -D OPENCV_GENERATE_PKGCONFIG=ON \
       -D BUILD_EXAMPLES=ON \
       -D CMAKE_INSTALL_PREFIX=/usr/local ..
+```
 
-make -j$(nproc)
+#### Step d: Installation
+
+Check the number of available CPU threads with:
+```bash
+nproc
+```
+
+Then compile and install OpenCV using:
+```bash
+make -j4
 sudo make install
 ```
 
-### 三、运行项目
-
-#### 编译并执行 C++ 文件
-
-编译：
-```bash
-g++ src/train.cpp -o train
+## Troubleshooting
+### Error
+```
+error while loading shared libraries: libopencv_img*.so.3.4: cannot open shared object file
 ```
 
-运行：
-```bash
-./train
-```
-
-或直接使用一行命令编译并执行：
-
-```bash
-g++ src/train.cpp -o train && ./train
-```
-
+Refer to the following solution:
+- [Debugging Shared Libraries Error (CSDN)](https://blog.csdn.net/qq_35759574/article/details/90205184)
 
