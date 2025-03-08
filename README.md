@@ -1,4 +1,4 @@
-# Project 2 Phase 1
+# Design and Implementation of an Autonomous Drone System
 
 ## 环境配置与安装指南
 
